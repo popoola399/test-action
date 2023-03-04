@@ -1,0 +1,18 @@
+name: Pull Request Check
+
+on:
+  pull_request:
+    branches: [ master ]
+jobs:
+  linting:
+    runs-on: self-hosted
+    env:
+        TF_WORKSPACE: PRD
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master  
+
+      - name: lint systems-apollo.yml
+        uses: ibiqlik/action-yamllint@v2
+        with:
+          file_or_dir: configuration/systems/apollo.yml
