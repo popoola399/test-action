@@ -1,13 +1,7 @@
-name: OpenSearch Linter 
-on: push
-
+name: Test
+on: [pull_request, workflow_dispatch]
 jobs:
-	job_1:
-		runs-on: ubuntu-latest
-		steps: 
-			- uses: action/checkout@v2
-			- uses: action/setup-node@v1
-			  with:
-				node-version: 12
-			- run: npm ci
-			- run: npm index.js
+  my_job:
+    name: deploy to staging
+    runs-on: ubuntu-18.04
+    
